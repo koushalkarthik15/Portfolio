@@ -2,15 +2,17 @@
 
 import dynamic from "next/dynamic";
 
-// Lazy load the Spline scene with a cinematic dark loading state
-const Spline = dynamic(() => import("@splinetool/react-spline"), {
-  ssr: false,
-  loading: () => (
-    <div className="absolute inset-0 flex items-center justify-center bg-black">
-      <div className="w-8 h-8 border-t-2 border-white/20 rounded-full animate-spin"></div>
-    </div>
-  ),
-});
+const Spline = dynamic(
+  () => import("@splinetool/react-spline").then((mod) => mod.default),
+  {
+    ssr: false,
+    loading: () => (
+      <div className="absolute inset-0 flex items-center justify-center bg-black">
+        <div className="text-white/20 animate-pulse">Loading Experience...</div>
+      </div>
+    ),
+  },
+);
 
 export default function SplineOrb() {
   return (
