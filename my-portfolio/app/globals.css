@@ -1,0 +1,11 @@
+@import "tailwindcss";
+
+/* Smooth scrolling for when users click your Navbar links */
+html {
+  scroll-behavior: smooth;
+}
+
+/* In Tailwind v4, custom utilities are defined using the @utility directive */
+@utility cinematic-glow {
+  box-shadow: 0 0 40px -10px rgba(255, 255, 255, 0.1);
+}
