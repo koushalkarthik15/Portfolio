@@ -66,7 +66,7 @@ export default function Navbar() {
             <Github size={20} />
           </a>
           <a
-            href="mailto:koushalkarthik5@gmail.com"
+            href="mailto:koushalkarthik5@gmail.com?subject=Portfolio%20Contact&body=Hello%20Karthik,"
             className="text-neutral-400 hover:text-white transition-colors"
           >
             <Mail size={20} />
