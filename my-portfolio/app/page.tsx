@@ -1,23 +1,27 @@
+"use client"; // Added to handle the interactive elements smoothly
+
+import Image from "next/image"; // Replaced <img> with optimized <Image />
 import SplineOrb from "@/components/3d/SplineOrb";
 import ProjectCard from "@/components/ui/ProjectCard";
 
 export default function Home() {
   return (
-    <div className="w-full min-h-screen bg-black overflow-hidden relative">
+    <div className="w-full min-h-screen bg-black overflow-hidden relative selection:bg-white selection:text-black">
       {/* HERO SECTION */}
       <section className="relative h-screen w-full flex items-center">
         <SplineOrb />
 
-        {/* Changed to a grid layout to split text (left) and photo (right) */}
         <div className="relative z-10 w-full max-w-[1400px] mx-auto px-6 grid grid-cols-1 lg:grid-cols-2 gap-12 items-center pointer-events-none">
-          {/* LEFT SIDE: Avatar, Typography & Call to Actions */}
+          {/* LEFT SIDE: Typography & Call to Actions */}
           <div className="max-w-3xl flex flex-col items-start">
-            {/* Left-Aligned Profile Avatar */}
             <div className="w-24 h-24 md:w-28 md:h-28 bg-neutral-900 rounded-full mb-6 overflow-hidden border-2 border-white/10 relative flex items-center justify-center shadow-[0_0_20px_rgba(255,255,255,0.05)] pointer-events-auto">
-              <img
+              <Image
                 src="/my-photo.jpg"
-                alt="Profile"
-                className="w-full h-full object-cover text-transparent opacity-90 hover:opacity-100 transition-opacity"
+                alt="D Koushal Karthik Rao"
+                width={112}
+                height={112}
+                priority // Ensures your photo loads instantly
+                className="w-full h-full object-cover opacity-90 hover:opacity-100 transition-opacity"
               />
             </div>
 
@@ -46,15 +50,16 @@ export default function Home() {
           </div>
         </div>
 
-        {/* Cinematic fade (Updated to correct Tailwind v4 syntax: bg-linear-to-t) */}
+        {/* Cinematic fade */}
         <div className="absolute bottom-0 w-full h-40 bg-linear-to-t from-black to-transparent z-10 pointer-events-none" />
       </section>
+
       {/* PROJECTS SECTION */}
       <section
         id="projects"
         className="py-32 px-6 max-w-[1400px] mx-auto relative z-20"
       >
-        <h2 className="text-3xl md:text-5xl font-bold mb-16 text-white">
+        <h2 className="text-3xl md:text-5xl font-bold mb-16 text-white tracking-tight">
           Featured Projects
         </h2>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
@@ -81,9 +86,8 @@ export default function Home() {
         className="py-32 px-6 relative z-20 bg-neutral-950/50 border-t border-white/5"
       >
         <div className="max-w-[1400px] mx-auto grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
-          {/* Left Column: Narrative */}
           <div>
-            <h2 className="text-3xl md:text-5xl font-bold mb-8 text-white">
+            <h2 className="text-3xl md:text-5xl font-bold mb-8 text-white tracking-tight">
               The Journey
             </h2>
             <div className="space-y-6 text-neutral-400 text-lg font-light leading-relaxed">
@@ -94,10 +98,10 @@ export default function Home() {
               </p>
               <p>
                 My approach to development is rooted in solving real-world
-                constraints. Whether I'm engineering a deterministic planning
-                engine for an AI or building phishing-resistant QR pipelines, I
-                focus on creating robust architectures that don't just work, but
-                scale.
+                constraints. Whether I&apos;m engineering a deterministic
+                planning engine for an AI or building phishing-resistant QR
+                pipelines, I focus on creating robust architectures that
+                don&apos;t just work, but scale.
               </p>
               <p>
                 Beyond code, I thrive in competitive environments that challenge
@@ -107,9 +111,7 @@ export default function Home() {
             </div>
           </div>
 
-          {/* Right Column: Key Highlights / Stats */}
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-            {/* GPA Card */}
             <div className="p-6 bg-black/40 border border-white/10 rounded-2xl backdrop-blur-md">
               <div className="text-blue-500 font-mono text-xs uppercase tracking-widest mb-2">
                 Academic Excellence
@@ -118,11 +120,10 @@ export default function Home() {
                 8.47 / 10
               </div>
               <p className="text-sm text-neutral-500">
-                Current CGPA at AVN Institute{" "}
+                Current CGPA at AVN Institute
               </p>
             </div>
 
-            {/* Mind Marathon Card */}
             <div className="p-6 bg-black/40 border border-white/10 rounded-2xl backdrop-blur-md">
               <div className="text-emerald-500 font-mono text-xs uppercase tracking-widest mb-2">
                 Competition
@@ -131,11 +132,10 @@ export default function Home() {
                 1st Place
               </div>
               <p className="text-sm text-neutral-500">
-                Mind Marathon AI & DS Quiz{" "}
+                Mind Marathon AI & DS Quiz
               </p>
             </div>
 
-            {/* Location Card */}
             <div className="p-6 bg-black/40 border border-white/10 rounded-2xl backdrop-blur-md col-span-1 sm:col-span-2">
               <div className="text-purple-500 font-mono text-xs uppercase tracking-widest mb-2">
                 Base of Operations
