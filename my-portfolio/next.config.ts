@@ -1,7 +1,11 @@
 import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
-  /* config options here */
+  // Disables image optimization errors on local static files
+  images: {
+    unoptimized: true,
+  },
 };
 
 export default nextConfig;
+
